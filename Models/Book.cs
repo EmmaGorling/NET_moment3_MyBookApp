@@ -13,6 +13,9 @@ public class Book {
     [Required]
     public string? Genre { get; set; }
 
+    [Display(Name = "Beskrivning")]
+    public string? Description { get; set; }
+
     public int AuthorId { get; set; }
 
     [Display(Name = "Författare")]
