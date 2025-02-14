@@ -34,7 +34,9 @@ namespace MyBookApp.Controllers
             }
 
             var author = await _context.Authors
+                .Include(a => a.Books)
                 .FirstOrDefaultAsync(m => m.Id == id);
+                
             if (author == null)
             {
                 return NotFound();

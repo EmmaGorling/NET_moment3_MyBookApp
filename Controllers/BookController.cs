@@ -82,7 +82,7 @@ namespace MyBookApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Id", book.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name", book.AuthorId);
             return View(book);
         }
 
@@ -91,7 +91,7 @@ namespace MyBookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,AuthorId")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Description,AuthorId")] Book book)
         {
             if (id != book.Id)
             {

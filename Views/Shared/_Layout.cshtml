@@ -24,26 +24,27 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Startsida</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Böcker</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Index">Författare</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Böcker</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Loan" asp-action="Index">Låna bok</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="mt-5 pb-3 w-100">
+        @RenderBody()
+    </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container text-center">
-            Webbutveckling med .NET | Mina böcker | <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:emad2301@student.miun.se">Emma Ådahl Görling</a>
-        </div>
+    <footer class="border-top footer text-muted w-100">
+            <p class="text-center">
+                Webbutveckling med .NET | Mina böcker | <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:emad2301@student.miun.se">Emma Ådahl Görling</a>
+            </p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

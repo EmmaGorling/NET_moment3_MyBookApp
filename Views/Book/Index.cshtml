@@ -4,44 +4,24 @@
     ViewData["Title"] = "Mina böcker";
 }
 
-<h1>Mina böcker</h1>
+<h1 class="text-center mb-5">Mina böcker</h1>
 
-<p>
-    <a asp-action="Create">Lägg till bok</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Redigera</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="p-1 mx-auto w-100 mw-70ch">
+    <p class="mb-4">
+        <a asp-action="Create">Lägg till bok</a>
+    </p>
+    
+    <section class="my-5 w-100">
+        @foreach (var item in Model) {
+            <article class="mb-4 p-3 border border-dark-subtle rounded">
+            <h3 class="mb-4">@Html.DisplayFor(modelItem => item.Title)</h3>
+            <p>Av @item.Author.Name</p>
+            <div class="d-flex justify-content-end">
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Edit" asp-route-id="@item.Id">Redigera</a> | 
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Delete" asp-route-id="@item.Id">Radera</a> 
+            </div>
+        </article>
+        }
+    </section>
+</div>

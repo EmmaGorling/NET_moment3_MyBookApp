@@ -1,24 +1,24 @@
 @model MyBookApp.Models.Author
 
 @{
-    ViewData["Title"] = "Detaljer";
+    ViewData["Title"] = @Model.Name;
 }
 
-<h1>Detaljer</h1>
+<h1  class="text-center mb-5">@Html.DisplayFor(model => model.Name)</h1>
 
-<div>
-    <h4>Författare</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
+<div class="p-1 mx-auto w-100 mw-70ch">
+    <h2 class="text-center mb-3">Mina böcker från författaren</h2>
+    @if (Model.Books != null && Model.Books.Any()) {
+        <ul>
+            @foreach (var book in Model.Books) {
+                <li><a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">@book.Title</a></li>
+            }
+        </ul>
+    } else {
+        <p>Jag har inga böcker från denna författade än...</p>
+    }
+    <div class="mt-5">
+        <a  class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Index">Tillbaka till listan</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Tillbaka till listan</a>
-</div>
+

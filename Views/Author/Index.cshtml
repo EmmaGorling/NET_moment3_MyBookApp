@@ -4,32 +4,27 @@
     ViewData["Title"] = "Författare";
 }
 
-<h1>Författare</h1>
+<h1 class="text-center mb-5">Författare</h1>
 
-<p>
-    <a asp-action="Create">Lägg till författare</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Redigera</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
-            </td>
-        </tr>
+<div class="p-1 mx-auto w-100 mw-70ch">
+    <p class="mb-4">
+        <a asp-action="Create">Lägg till författare</a>
+    </p>
+
+    <section class="my-5 w-100">
+    @foreach (var author in Model) {
+        <article class="mb-4 p-3 border border-dark-subtle rounded">
+            <h3 class="mb-4">@Html.DisplayFor(modelItem => author.Name)</h3>
+            <div class="d-flex justify-content-end">
+                <a class="mx-2" asp-action="Edit" asp-route-id="@author.Id">Redigera</a> |
+                <a class="mx-2" asp-action="Details" asp-route-id="@author.Id">Detaljer</a> |
+                <a class="mx-2" asp-action="Delete" asp-route-id="@author.Id">Radera</a>
+            </div>
+        </article>
 }
-    </tbody>
-</table>
+</section>
+</div>
+
+
+
+
