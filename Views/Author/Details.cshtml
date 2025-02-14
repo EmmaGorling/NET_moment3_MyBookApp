@@ -9,13 +9,13 @@
 <div class="p-1 mx-auto w-100 mw-70ch">
     <h2 class="text-center mb-3">Mina böcker från författaren</h2>
     @if (Model.Books != null && Model.Books.Any()) {
-        <ul>
+        <ul  class="list-group">
             @foreach (var book in Model.Books) {
-                <li><a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">@book.Title</a></li>
+                <li class="list-group-item"><a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">@book.Title</a></li>
             }
         </ul>
     } else {
-        <p>Jag har inga böcker från denna författade än...</p>
+        <p>Jag har inga böcker från denna författare än...</p>
     }
     <div class="mt-5">
         <a  class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Index">Tillbaka till listan</a>

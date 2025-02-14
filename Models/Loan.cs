@@ -7,6 +7,7 @@ public class Loan {
     public int Id { get; set; }
     [Required]
     public int BookId { get; set; }
+    [Display(Name ="Bok")]
     public Book? Book { get; set; }
 
     [Required]

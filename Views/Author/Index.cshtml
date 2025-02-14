@@ -16,9 +16,9 @@
         <article class="mb-4 p-3 border border-dark-subtle rounded">
             <h3 class="mb-4">@Html.DisplayFor(modelItem => author.Name)</h3>
             <div class="d-flex justify-content-end">
-                <a class="mx-2" asp-action="Edit" asp-route-id="@author.Id">Redigera</a> |
-                <a class="mx-2" asp-action="Details" asp-route-id="@author.Id">Detaljer</a> |
-                <a class="mx-2" asp-action="Delete" asp-route-id="@author.Id">Radera</a>
+                <a class="mx-2  link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Edit" asp-route-id="@author.Id">Redigera</a> |
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Details" asp-route-id="@author.Id">Detaljer</a> |
+                <a class="mx-2 link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Delete" asp-route-id="@author.Id">Radera</a>
             </div>
         </article>
 }

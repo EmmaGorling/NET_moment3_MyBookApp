@@ -11,18 +11,18 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group mb-2">
+            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group mb-2">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group my-4 w-fc mx-auto">
+                <input type="submit" value="Spara" class="btn btn-success" />
             </div>
         </form>
     </form>
-    <div>
-        <a asp-action="Index">Tillbaka till listan</a>
+    <div class="my-4">
+        <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Index">Tillbaka till listan</a>
     </div>
 </div>
 

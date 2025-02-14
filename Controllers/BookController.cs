@@ -20,8 +20,9 @@ namespace MyBookApp.Controllers
         }
 
         // GET: Book
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            
             var applicationDbContext = _context.Books.Include(b => b.Author);
             return View(await applicationDbContext.ToListAsync());
         }
