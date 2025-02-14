@@ -16,5 +16,6 @@ public class Loan {
 
     [Required]
     [Display(Name = "Lånedatum")]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime LoanDate { get; set; } = DateTime.Now;
 }

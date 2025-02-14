@@ -48,7 +48,7 @@ namespace MyBookApp.Controllers
         // GET: Loan/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Genre");
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Title");
             return View();
         }
 
@@ -155,6 +155,7 @@ namespace MyBookApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool LoanExists(int id)
         {

@@ -1,0 +1,19 @@
+@model MyBookApp.Models.Loan
+
+@{
+    ViewData["Title"] = "Lånedetaljer";
+}
+
+
+
+<article class="mx-auto w-fc mw-70ch p-2">
+    <h1 class="text-center mb-5">Lånedetaljer</h1>
+    <div>
+        <p><span class="fw-semibold me-2">@Html.DisplayNameFor(model => model.Book.Title):</span> @Html.DisplayFor(model => model.Book.Title)</p>
+        <p><span class="fw-semibold me-2">@Html.DisplayNameFor(model => model.BorrowerName):</span> @Html.DisplayFor(model => model.BorrowerName)</p>
+        <p><span class="fw-semibold">@Html.DisplayNameFor(model => model.LoanDate):</span> @Html.DisplayFor(model => model.LoanDate)</p>
+    </div>
+    <div>
+        <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Index">Tillbaka till lista</a>
+    </div>
+</article>

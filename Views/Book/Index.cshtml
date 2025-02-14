@@ -6,11 +6,21 @@
 
 <h1 class="text-center mb-5">Mina böcker</h1>
 
+
+
 <div class="p-1 mx-auto w-100 mw-70ch">
+
     <p class="mb-4">
         <a asp-action="Create">Lägg till bok</a>
     </p>
     
+    <form asp-action="Index" method="get" class="mb-4">
+        <input type="text" name="searchString" class="form-control" placeholder="Sök efter bok eller författare" value="@Context.Request.Query["searchString"]">
+        <div class="form-group my-4 mx-auto w-fc">
+            <button type="submit" class="btn btn-success">Sök</button>
+        </div>
+    </form>
+
     <section class="my-5 w-100">
         @foreach (var item in Model) {
             <article class="mb-4 p-3 border border-dark-subtle rounded">

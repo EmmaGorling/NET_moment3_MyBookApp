@@ -4,42 +4,24 @@
     ViewData["Title"] = "Lånade böcker";
 }
 
-<h1 class="text-center mb-5">@ViewData["Title"]</h1>
+<h1 class="text-center mb-5">Lånade böcker</h1>
 
 <div class="p-1 mx-auto w-100 mw-70ch">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Book)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BorrowerName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LoanDate)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+    <p class="mb-4">
+        <a asp-action="Create">Låna en bok</a>
+    </p>
+    
     @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Book.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BorrowerName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LoanDate)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <article class="mb-4 p-3 border border-dark-subtle rounded">
+            <h3>@Html.DisplayFor(modelItem => item.Book.Title)</h3>
+            <p><strong>@Html.DisplayNameFor(modelItem => item.BorrowerName):</strong> @Html.DisplayFor(modelItem => item.BorrowerName)</p>
+            <p><strong>@Html.DisplayNameFor(modelItem => item.LoanDate):</strong> @Html.DisplayFor(modelItem => item.LoanDate)</p>
+            <div class="d-flex justify-content-end">
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Edit" asp-route-id="@item.Id">Redigera</a> |
+                <a class="mx-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                <a class="mx-2 link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Delete" asp-route-id="@item.Id">Radera</a>
+            </div>
+        </article>
     }
         </tbody>
     </table>

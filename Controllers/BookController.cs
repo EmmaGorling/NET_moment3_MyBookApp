@@ -22,9 +22,14 @@ namespace MyBookApp.Controllers
         // GET: Book
         public async Task<IActionResult> Index(string searchString)
         {
-            
-            var applicationDbContext = _context.Books.Include(b => b.Author);
-            return View(await applicationDbContext.ToListAsync());
+            var books = _context.Books.Include(b => b.Author).AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(b => b.Title.ToLower().Contains(searchString.ToLower()) || b.Author.Name.ToLower().Contains(searchString.ToLower()));
+            }
+
+            return View(await books.ToListAsync());
         }
 
         // GET: Book/Details/5
