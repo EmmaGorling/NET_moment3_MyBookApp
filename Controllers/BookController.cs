@@ -63,7 +63,7 @@ namespace MyBookApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Genre,AuthorId")] Book book)
+        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Description,AuthorId")] Book book)
         {
             if (ModelState.IsValid)
             {

@@ -46,10 +46,21 @@ namespace MyBookApp.Controllers
         }
 
         // GET: Loan/Create
-        public IActionResult Create()
+        public IActionResult Create(int? bookId)
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Title");
-            return View();
+            var loan = new Loan();
+
+        if (bookId != null)
+        {
+            var book = _context.Books.Find(bookId);
+            if (book != null)
+            {
+                loan.BookId = book.Id;
+            }
+        }
+
+        ViewData["BookId"] = new SelectList(_context.Books, "Id", "Title", loan.BookId);
+        return View(loan);
         }
 
         // POST: Loan/Create
@@ -82,7 +93,7 @@ namespace MyBookApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Genre", loan.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Title", loan.BookId);
             return View(loan);
         }
 

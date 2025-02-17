@@ -4,14 +4,14 @@
     ViewData["Title"] = "Redigera";
 }
 
-<h1>Redigera lån</h1>
+<h1  class="text-center mb-5">Redigera lån</h1>
 
-<div   class="container mx-auto mw-70ch">
+<div  class="container mx-auto mw-70ch">
     <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="form-group mb-2">
-            <label asp-for="BookId" class="control-label"></label>
+            <label asp-for="BookId" class="control-label">Bok</label>
             <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
             <span asp-validation-for="BookId" class="text-danger"></span>
         </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group mb-2">
             <label asp-for="LoanDate" class="control-label"></label>
-            <input asp-for="LoanDate" class="form-control" />
+            <input asp-for="LoanDate" class="form-control" type="date"/>
             <span asp-validation-for="LoanDate" class="text-danger"></span>
         </div>
         <div class="form-group my-4 mx-auto w-fc">
