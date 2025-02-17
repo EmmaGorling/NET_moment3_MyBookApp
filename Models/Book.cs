@@ -6,11 +6,11 @@ public class Book {
     // Properties
     public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Bokens titel är obligatoriskt")]
     [Display(Name = "Titel")]
     public string? Title { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Bokens genre är obligatoriskt")]
     public string? Genre { get; set; }
 
     [Display(Name = "Beskrivning")]

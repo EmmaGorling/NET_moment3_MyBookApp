@@ -14,9 +14,10 @@
             <br>
             </span>@Html.DisplayFor(model => model.Description)
         </p>
+        <a class="d-block btn btn-success w-fc my-4" asp-controller="Loan" asp-action="Create" asp-route-bookId="@Model.Id">Låna boken</a>
     </div>
     <div class="">
-        <a asp-controller="Loan" asp-action="Create" asp-route-bookId="@Model.Id">Låna boken</a>
+        
         <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" asp-action="Index">Tillbaka till listan</a>
     </div>
 </article>

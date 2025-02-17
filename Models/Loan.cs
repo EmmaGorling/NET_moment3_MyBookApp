@@ -10,7 +10,7 @@ public class Loan {
     [Display(Name ="Bok")]
     public Book? Book { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Låntagaren måste ange ett namn")]
     [Display(Name = "Låntagarens namn")]
     public string? BorrowerName { get; set; }
 
