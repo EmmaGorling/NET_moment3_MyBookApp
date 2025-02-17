@@ -40,3 +40,10 @@ body {
 .minw-60ch {
   min-width: 60ch;
 }
+
+#bg-image {
+  background-image: url(../books.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
